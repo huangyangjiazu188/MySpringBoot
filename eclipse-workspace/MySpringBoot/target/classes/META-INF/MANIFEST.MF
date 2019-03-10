@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: MySpringBoot
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.dude
+Build-Jdk: 1.7.0_80
+Built-By: 41507
+Created-By: Maven Integration for Eclipse
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/MySpringBoot
+
