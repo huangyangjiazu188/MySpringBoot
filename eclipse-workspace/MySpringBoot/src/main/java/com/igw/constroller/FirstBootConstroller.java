@@ -1,11 +1,13 @@
 package com.igw.constroller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.igw.model.User;
+import com.igw.model.RunoobTbl;
+import com.igw.service.RunoobTblService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -18,8 +20,8 @@ import io.swagger.annotations.ApiResponses;
 @Api("第一个ConstrollerAPI")
 public class FirstBootConstroller {
 	
-	
-	
+	@Autowired
+	private RunoobTblService runoobTblService;
 	
 	@ApiOperation("根据用户ID获取用户信息")//接口说明
 	@ApiImplicitParams({//需要的参数
@@ -30,11 +32,10 @@ public class FirstBootConstroller {
 		@ApiResponse(code=400,message="参数不正确")
 	})
 	@RequestMapping(value="/getUser",method=RequestMethod.GET)
-    public User index(@RequestParam("id") int id) {
-		if(id == 1){
-			return new User(1,"小红","1234566");
-		}
-		return new User(1,"小刚","18888");
+    public RunoobTbl index(@RequestParam("id") int id) {
+		
+		
+		return runoobTblService.getRunoobTblInfoById(id);
     }
 	
 	
