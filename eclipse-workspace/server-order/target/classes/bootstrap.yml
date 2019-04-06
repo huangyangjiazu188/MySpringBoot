@@ -1,0 +1,32 @@
+server:
+  port: 8764
+spring:
+  application:
+    name: server-order
+  cloud:
+    config:
+#启动什么环境下的配置，dev 表示开发环境，这跟你仓库的文件的后缀有关，
+#比如，仓库配置文件命名格式是  要调取此配置的项目名称-dev.properties,所以profile 就要写dev
+#  /{name}-{profiles}.yml
+#  /{label}/{name}-{profiles}.yml
+#
+#name : 文件名，一般以服务名来命名
+#profiles : 一般作为环境标识
+#lable : 分支（branch），指定访问某分支下的配置文件   
+      profile: dev
+#面向服务，允许被发现
+      discovery:
+        enabled: true
+#这个名字是Config Server端的服务名字，不能瞎写。
+        service-id: config-server
+#注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+#是否需要权限拉去，默认是true,如果不false就不允许你去拉取配置中心Server更新的内容
+management:
+  security:
+    enabled: false
+    
+    
